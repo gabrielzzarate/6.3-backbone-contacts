@@ -1,31 +1,38 @@
 //3rd party
 var Backbone = require('backbone');
 var handlebars = require('handlebars');
+var $ = require('jQuery');
+
+var models = require('../models/contacts');
 
 
 var ContactView = Backbone.View.extend({
 
   tagName:  'li',
   className: 'contact-item',
+  model: models.Contact,
+  collection: models.ContactCollection,
 
   // Cache the template function for a single item.
   contactTemplate: handlebars.compile( $('#contact-template').html() ),
 
   events: {
+    "click .clickMe" : "complete",
     'dblclick label': 'edit',
     'keypress .edit': 'updateOnEnter',
     'blur .edit':   'close'
   },
 
   initialize: function (options) {
-    // In Backbone 1.1.0, if you want to access passed options in
+    
     // your view, you will need to save them as follows:
     this.options = options || {};
+    this.listenTo(this.model, "add", this.render);
   },
 
   // Re-render the title of the contact item.
   render: function() {
-    this.$el.html( this.contactTemplate( this.model.attributes ) );
+    this.$el.html( this.contactTemplate(this.collection.toJSON()) );
     this.input = this.$('.edit');
     return this;
   },
@@ -43,6 +50,9 @@ var ContactView = Backbone.View.extend({
     // but we'll wait for enter to get in action
   }
 });
+
+var contact = new ContactView();
+console.log(contact);
 
 module.exports = {
   'ContactView': ContactView

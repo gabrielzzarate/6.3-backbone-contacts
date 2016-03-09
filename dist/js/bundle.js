@@ -1,0 +1,1 @@
+console.error("Error: Parsing file /Users/gabrielzarate/code/tiy/6.3-backbone-contacts/app/scripts/models/contacts.js: Unexpected character '@' (53:3)");

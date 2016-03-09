@@ -3,9 +3,9 @@ var Backbone = require('backbone');
 var $ = require('jQuery');
 
 
-Backbone.ajax = function(request) {
-
-};
+// Backbone.ajax = function(request) {
+//
+// };
 // google api key AIzaSyBRvzBPUBX54lJVUoGMg4KNmTL0fTuFTCY
 
 var Contact = Backbone.Model.extend({
@@ -27,15 +27,21 @@ var Contact = Backbone.Model.extend({
   }
 });
 
-var ContactList = Backbone.Collection.extend({
+var ContactCollection = Backbone.Collection.extend({
   model: Contact,
-  url: 'https://www.google.com/m8/feeds/contacts/gabrielzzarate/full'
+  url: 'http://tiny-lasagna-server.herokuapp.com/collections/mycontacts/'
+  //url: 'https://www.google.com/m8/feeds/contacts/gabrielzzarate/full'
 
 
 });
 
+// var myContacts = new ContactCollection();
+// myContacts.reset([
+//   myContacts.each(function(contact){
+//     contact.save();
+//
 
 module.exports = {
   'Contact': Contact,
-  'ContactList': ContactList
+  'ContactCollection': ContactCollection
 };
