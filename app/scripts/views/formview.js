@@ -3,18 +3,15 @@ var Backbone = require('backbone');
 var handlebars = require('handlebars');
 var $ = require('jQuery');
 
-
-
-
-var ContactView = Backbone.View.extend({
+var FormView = Backbone.View.extend({
 
   tagName:  'li',
-  className: 'contact-item',
-  model: //instance of model
-  collection: //instance of collection
+  className: 'form-item',
+  //model: //instance of model
+  //collection: //instance of collection
 
   // Cache the template function for a single item.
-  contactTemplate: handlebars.compile( $('#contact-template').html() ),
+  formTemplate: handlebars.compile( $('#form-template').html() ),
 
   events: {
     "click .clickMe" : "complete",
@@ -37,23 +34,18 @@ var ContactView = Backbone.View.extend({
     return this;
   },
 
+  createContact: function(){
+    //this.each(.seralizeArray())
+  },
+
   edit: function() {
     // executed when contact label is double clicked
   },
 
-  close: function() {
-    // executed when contact loses focus
-  },
-
-  updateOnEnter: function( e ) {
-    // executed on each keypress when in contact edit mode,
-    // but we'll wait for enter to get in action
-  }
 });
 
-var contact = new ContactView();
-console.log(contact);
+
 
 module.exports = {
-  'ContactView': ContactView
+  'FormView': FormView
 };

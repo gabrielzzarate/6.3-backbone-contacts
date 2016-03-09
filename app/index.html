@@ -16,20 +16,20 @@
         <form>
             <h2>Create New Contact</h2>
             <div class="form-group">
-                <label >Contact Name</label>
-                <input type="name" class="form-control" placeholder="full name">
+                <label>Contact Name</label>
+                <input id="name-input" type="name" class="form-control" placeholder="full name">
           </div>
             <div class="form-group">
               <label>Phone Number</label>
-              <input type="phone number" class="form-control" placeholder="phone number">
+              <input id="phone-input" type="phone number" class="form-control" placeholder="phone number">
             </div>
 
             <div class="form-group">
               <label>Company</label>
-              <input type="phone number" class="form-control" placeholder="company name">
+              <input id="company-input" type="phone number" class="form-control" placeholder="company name">
             </div>
 
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
           </form>
       </div>
 
@@ -39,12 +39,18 @@
 
     </div>
 
+      <script type="text/x-handlebars-template" id="form-template">
+        
+      </script>
+
 
     <script type="text/x-handlebars-template" id="contact-template">
       {{#each this}}
         <li>{{this.contact}}:: <a class= "clickMe" href="#">{#if this.completed}}Completed!{{else}}Pending{{/if}} </a></li>
       {{/each}}
     </script>
+
+
     <script src="js/bundle.js"></script>
   </body>
 </html>
