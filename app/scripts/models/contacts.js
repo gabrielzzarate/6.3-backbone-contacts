@@ -3,11 +3,6 @@ var Backbone = require('backbone');
 var $ = require('jQuery');
 
 
-// Backbone.ajax = function(request) {
-//
-// };
-// google api key AIzaSyBRvzBPUBX54lJVUoGMg4KNmTL0fTuFTCY
-
 var Contact = Backbone.Model.extend({
   // Default contact attribute values
   defaults: {

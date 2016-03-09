@@ -10,8 +10,8 @@ var ContactView = Backbone.View.extend({
 
   tagName:  'li',
   className: 'contact-item',
-  model: //instance of model
-  collection: //instance of collection
+  //model: //instance of model
+  //collection: //instance of collection
 
   // Cache the template function for a single item.
   contactTemplate: handlebars.compile( $('#contact-template').html() ),

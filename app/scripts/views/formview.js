@@ -35,7 +35,16 @@ var FormView = Backbone.View.extend({
   },
 
   createContact: function(){
-    //this.each(.seralizeArray())
+    $.fn.serializeObject = function() {
+   return this.serializeArray().reduce(function(acum, i) {
+     acum[i.name] = i.value;
+     return acum;
+   }, {});
+    };
+
+
+   var formInputs = $(event.this).serializeObject();
+
   },
 
   edit: function() {

@@ -21,6 +21,6 @@ function addNewContact(){
   var phoneInput = $('name-input').val();
   var companyInput = $('#company-input').val();
 
-    models.ContactCollection.add()
+  //  models.ContactCollection.add()
 
 }
