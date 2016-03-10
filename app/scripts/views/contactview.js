@@ -8,51 +8,49 @@ var $ = require('jQuery');
 
 var ContactView = Backbone.View.extend({
 
-  tagName:  'li',
+  tagName:  'td',
   className: 'contact-item',
-  //model: //instance of model
-  //collection: //instance of collection
+
 
   // Cache the template function for a single item.
-  contactTemplate: handlebars.compile( $('#contact-template').html() ),
+  template: handlebars.compile( $('#contact-template').html() ),
 
   events: {
     "click .clickMe" : "complete",
-    'dblclick label': 'edit',
-    'keypress .edit': 'updateOnEnter',
-    'blur .edit':   'close'
+    'click .destroy': 'clear',
+
   },
 
-  initialize: function (options) {
+  initialize: function () {
 
-    // your view, you will need to save them as follows:
-    this.options = options || {};
-    this.listenTo(this.model, "add", this.render);
+    this.listenTo(this.collection, "add", this.render);
+    this.listenTo(this.collection, "reset", this.render);
+
+
+
+
   },
 
-  // Re-render the title of the contact item.
+
+
   render: function() {
-    this.$el.html( this.contactTemplate(this.collection.toJSON()) );
-    this.input = this.$('.edit');
+    console.log("rendering...");
+    //this.$el.html(this.template());
+    this.$el.html( this.template(this.collection.toJSON()) );
+    this.listenTo(this.collection, 'add', this.render);
     return this;
   },
 
-  edit: function() {
-    // executed when contact label is double clicked
-  },
-
-  close: function() {
-    // executed when contact loses focus
-  },
-
-  updateOnEnter: function( e ) {
-    // executed on each keypress when in contact edit mode,
-    // but we'll wait for enter to get in action
+  clear: function(event) {
+    //this.collection.models.destroy();
+    console.log(this.model);
+    console.log(this.collection);
+    console.log("deleting...");
   }
+
+
 });
 
-var contact = new ContactView();
-console.log(contact);
 
 module.exports = {
   'ContactView': ContactView

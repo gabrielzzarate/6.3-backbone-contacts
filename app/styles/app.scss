@@ -32,6 +32,7 @@ body {
   display: block;
 }
 
+
 .facebook{
   padding-left: 5px;
 }
@@ -46,4 +47,25 @@ body {
 
 .instagram {
   padding-left: 5px;
+
+
+.table-headings {
+
+}
+
+.table-items td {
+  background-color: #333;
+}
+
+a {
+  color: white;
+
+  &:hover {
+    color: red;
+  }
+
+  &:active {
+    color: white;
+  }
+  
 }

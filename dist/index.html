@@ -6,29 +6,61 @@
     <title>Backbone Contacts</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 89177e97b0d1bec33a9d49f7650b022b1d83c365
   </head>
   <body>
 
-    <h1>Backbone Contacts</h1>
+    <h1>Contact Directory</h1>
 
     <div class="container">
 
       <div class="createContacts col-md-4">
+<<<<<<< HEAD
         <form>
             <h2>Create New Contact</h2>
             <div class="form-group">
                 <label >Contact Name</label>
                 <input type="name" class="form-control" placeholder="full name">
+=======
+        <!-- form template populates here -->
+      </div>
+
+      <div class="col-md-8">
+        <ul class="showContacts">
+            <!--contact template populates here -->
+
+        </ul>
+
+
+
+      </div>
+
+    </div>
+
+      <script type="text/x-handlebars-template" id="form-template">
+
+            <h3>Create New Contact</h3>
+            <div class="form-group">
+                <label>Contact Name</label>
+                <input name="name-input" id="name-input" type="name" class="form-control" placeholder="full name">
+>>>>>>> 89177e97b0d1bec33a9d49f7650b022b1d83c365
           </div>
 
             <div class="form-group">
               <label>Phone Number</label>
+<<<<<<< HEAD
               <input type="phone number" class="form-control" placeholder="phone number">
+=======
+              <input name="phone-input" id="phone-input" type="phone number" class="form-control" placeholder="phone number">
+>>>>>>> 89177e97b0d1bec33a9d49f7650b022b1d83c365
             </div>
 
             <div class="form-group">
               <label>Company</label>
+<<<<<<< HEAD
               <input name="company-input" type="phone number" class="form-control" placeholder="company name">
             </div>
 
@@ -62,12 +94,50 @@
       </div>
 
     </div>
+=======
+              <input name="company-input" id="company-input" type="phone number" class="form-control" placeholder="company name">
+            </div>
+
+            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
+
+
+      </script>
+>>>>>>> 89177e97b0d1bec33a9d49f7650b022b1d83c365
 
 
     <script type="text/x-handlebars-template" id="contact-template">
+
+      <table class="table table-hover">
+        <table class="table table-striped">
+    <thead>
+      <tr class="table-headings">
+        <th>Name</th>
+        <th>Phone #</th>
+        <th>Company</th>
+        <th>Twitter</th>
+        <th>LinkedIn</th>
+        <th>Facebook</th>
+      </tr>
+    </thead>
+    <tbody>
       {{#each this}}
+<<<<<<< HEAD
         <li>{{this.company-input}}:: <a class= "clickMe" href="#"> </a></li>
+=======
+      <tr class="table-items">
+        <td>{{this.name-input}}</td>
+        <td>{{this.phone-input}}</td>
+        <td>{{this.company-input}}</td>
+        <td><a href="#"><i class="fa fa-trash-o icons destroy"></i></a></td>
+      </tr>
+>>>>>>> 89177e97b0d1bec33a9d49f7650b022b1d83c365
       {{/each}}
+    </tbody>
+
+
+      </table>
+
+
     </script>
     <script id="image-template" type="text/x-handlebars-template">
         <p>All categories "{{searchTerm}}" ({{numberofresults}} Results)</p>

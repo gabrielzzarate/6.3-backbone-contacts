@@ -2,54 +2,47 @@
 var Backbone = require('backbone');
 var handlebars = require('handlebars');
 var $ = require('jQuery');
+var utlities = require('./viewutlities');
 
 var FormView = Backbone.View.extend({
 
-  tagName:  'li',
+  tagName:  'form',
   className: 'form-item',
-  //model: //instance of model
-  //collection: //instance of collection
+
 
   // Cache the template function for a single item.
-  formTemplate: handlebars.compile( $('#form-template').html() ),
+  template: handlebars.compile( $('#form-template').html() ),
 
   events: {
-    "click .clickMe" : "complete",
-    'dblclick label': 'edit',
-    'keypress .edit': 'updateOnEnter',
-    'blur .edit':   'close'
+    "click #submit-button" : "formatForm",
+
   },
 
-  initialize: function (options) {
+  initialize: function () {
 
-    // your view, you will need to save them as follows:
-    this.options = options || {};
-    this.listenTo(this.model, "add", this.render);
+    this.listenTo(this.collection, "add", this.render);
+
   },
 
-  // Re-render the title of the contact item.
-  render: function() {
-    this.$el.html( this.contactTemplate(this.collection.toJSON()) );
-    this.input = this.$('.edit');
+
+  render: function(model) {
+
+    this.$el.html(this.template());
     return this;
   },
 
-  createContact: function(){
-    $.fn.serializeObject = function() {
-   return this.serializeArray().reduce(function(acum, i) {
-     acum[i.name] = i.value;
-     return acum;
-   }, {});
-    };
+  formatForm: function(event){
+      event.preventDefault();
+      var contactData = this.$el.serializeArray().reduce(function(acum, i) {
+       acum[i.name] = i.value;
+       return acum;
+        }, {});
+        console.log(contactData);
+        this.collection.create(contactData);
+        //this.collection.add(contactData);
+        //Backbone.Validation.bind(this);
+      }
 
-
-   var formInputs = $(event.this).serializeObject();
-
-  },
-
-  edit: function() {
-    // executed when contact label is double clicked
-  },
 
 });
 
