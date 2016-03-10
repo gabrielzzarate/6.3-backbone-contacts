@@ -14,6 +14,7 @@ var Contact = Backbone.Model.extend({
     this.on('change', function(){
         console.log('- Values for this contact have changed.');
     });
+
   },
   validate: function(attributes){
     if(attributes.title === undefined){
@@ -25,7 +26,7 @@ var Contact = Backbone.Model.extend({
 var ContactCollection = Backbone.Collection.extend({
   model: Contact,
   url: 'http://tiny-lasagna-server.herokuapp.com/collections/mycontacts/'
-  //url: 'https://www.google.com/m8/feeds/contacts/gabrielzzarate/full'
+  
 
 
 });

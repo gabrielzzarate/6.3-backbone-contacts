@@ -13,27 +13,16 @@
     <div class="container">
 
       <div class="createContacts col-md-4">
-        <form id="contact-form">
-            <h2>Create New Contact</h2>
-            <div class="form-group">
-                <label>Contact Name</label>
-                <input id="name-input" type="name" class="form-control" placeholder="full name">
-          </div>
-            <div class="form-group">
-              <label>Phone Number</label>
-              <input id="phone-input" type="phone number" class="form-control" placeholder="phone number">
-            </div>
-
-            <div class="form-group">
-              <label>Company</label>
-              <input id="company-input" type="phone number" class="form-control" placeholder="company name">
-            </div>
-
-            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
-          </form>
+        <!-- form template populates here -->
       </div>
 
-      <div class="showContacts col-md-8">
+      <div class="col-md-8">
+        <ul class="showContacts">
+            <!--contact template populates here -->
+
+        </ul>
+
+
         <button type="button" class="btn btn-primary submit-button"><span class="button-tag">show contacts</span></button>
       </div>
 
@@ -41,12 +30,32 @@
 
       <script type="text/x-handlebars-template" id="form-template">
 
+            <h2>Create New Contact</h2>
+            <div class="form-group">
+                <label>Contact Name</label>
+                <input name="name-input" id="name-input" type="name" class="form-control" placeholder="full name">
+          </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input name="phone-input" id="phone-input" type="phone number" class="form-control" placeholder="phone number">
+            </div>
+
+            <div class="form-group">
+              <label>Company</label>
+              <input name="company-input" id="company-input" type="phone number" class="form-control" placeholder="company name">
+            </div>
+
+            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
+
+
       </script>
 
 
     <script type="text/x-handlebars-template" id="contact-template">
       {{#each this}}
-        <li>{{this.contact}}:: <a class= "clickMe" href="#">{#if this.completed}}Completed!{{else}}Pending{{/if}} </a></li>
+        <li>{{this.name-input}}:: <a class= "clickMe" href="#"></a></li>
+        <li>{{this.phone-input}}:: <a class= "clickMe" href="#"></a></li>
+        <li>{{this.company-input}}:: <a class= "clickMe" href="#"></a></li>
       {{/each}}
     </script>
 
