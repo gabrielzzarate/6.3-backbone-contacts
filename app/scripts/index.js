@@ -19,9 +19,9 @@ $('.showContacts').html(contactView.render().el);
 
 //this.el.html
 
-var contacts = new ContactCollection();
+var contacts = new models.ContactCollection();
 contacts.fetch().done(function(){
-  var formView = new ContactView( { collection: contacts });
+  var formView = new formView.FormView( { collection: contacts });
 
 });
 

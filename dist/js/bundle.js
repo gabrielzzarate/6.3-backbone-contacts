@@ -21,9 +21,9 @@ $('.showContacts').html(contactView.render().el);
 
 //this.el.html
 
-var contacts = new ContactCollection();
+var contacts = new models.ContactCollection();
 contacts.fetch().done(function(){
-  var formView = new ContactView( { collection: contacts });
+  var formView = new formView.FormView( { collection: contacts });
 
 });
 
@@ -122,7 +122,7 @@ var $ = require('jQuery');
 var ContactView = Backbone.View.extend({
 
   tagName:  'td',
-  className: 'contact-item',
+  className: 'contact-item  table-hover',
 
 
   // Cache the template function for a single item.
@@ -164,9 +164,31 @@ var ContactView = Backbone.View.extend({
 
 });
 
+// var ContactItemView = Backbone.View.extend({
+//   tagName: 'tbody',
+//   initialize: function(){
+//     this.listenTo(this.collection, "add", this.renderChild);
+//   },
+//   render: function(){
+//     this.$el.html( this.template(this.model.toJSON()) );
+//     return this;
+//   },
+//
+//   renderChild: function(contact){
+//     var view = new ContactItemView({model: Contact});
+//     this.$el.append(view.render().el);
+//     //this.$el.html( this.template(this.collection.toJSON()) );
+//   }
+//
+//
+//
+//
+// });
+
 
 module.exports = {
-  'ContactView': ContactView
+  'ContactView': ContactView,
+  //'ContactItemView': ContactItemView
 };
 
 },{"backbone":8,"handlebars":38,"jQuery":50}],4:[function(require,module,exports){
