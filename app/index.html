@@ -6,6 +6,8 @@
     <title>Backbone Contacts</title>
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
   </head>
   <body>
 
@@ -14,6 +16,7 @@
     <div class="container">
 
       <div class="createContacts col-md-4">
+
         <!-- form template populates here -->
       </div>
 
@@ -35,21 +38,53 @@
             <div class="form-group">
                 <label>Contact Name</label>
                 <input name="name-input" id="name-input" type="name" class="form-control" placeholder="full name">
+
           </div>
+
             <div class="form-group">
               <label>Phone Number</label>
+
               <input name="phone-input" id="phone-input" type="phone number" class="form-control" placeholder="phone number">
+
             </div>
 
             <div class="form-group">
               <label>Company</label>
-              <input name="company-input" id="company-input" type="phone number" class="form-control" placeholder="company name">
+
+              <input name="company-input" type="phone number" class="form-control" placeholder="company name">
             </div>
 
-            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
+            <div class="form-group">
+              <i class="fa fa-twitter-square"></i><span class="twitter"><label>Twitter</label></span>
+              <input name="company-input" type="phone number" class="form-control" placeholder="twitter username">
+            </div>
 
+            <div class="form-group">
+              <i class="fa fa-linkedin-square"></i><span class="linkedin"><label>LinkedIn</label></span>
+              <input name="company-input" type="phone number" class="form-control" placeholder="linkedin">
+            </div>
 
-      </script>
+            <div class="form-group">
+              <i class="fa fa-facebook-square"></i><span class="facebook"><label>Facebook</label></span>
+              <input name="company-input" type="phone number" class="form-control" placeholder="facebook">
+            </div>
+
+            <div class="form-group">
+              <i class="fa fa-instagram"></i><span class="instagram"><label>Instagram</label></span>
+              <input name="company-input" type="phone number" class="form-control" placeholder="instagram">
+            </div>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+
+          </form>
+      </div>
+
+      <div class="showContacts col-md-8">
+        <button type="button" class="btn btn-primary submit-button"><span class="button-tag">show contacts</span></button>
+      </div>
+
+    </div>
+
 
 
     <script type="text/x-handlebars-template" id="contact-template">
@@ -68,12 +103,14 @@
     </thead>
     <tbody>
       {{#each this}}
+
       <tr class="table-items">
         <td>{{this.name-input}}</td>
         <td>{{this.phone-input}}</td>
         <td>{{this.company-input}}</td>
         <td><a href="#"><i class="fa fa-trash-o icons destroy"></i></a></td>
       </tr>
+
       {{/each}}
     </tbody>
 
@@ -84,6 +121,9 @@
     </script>
 
 
+
+
+       
     <script src="js/bundle.js"></script>
   </body>
 </html>
