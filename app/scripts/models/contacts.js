@@ -1,12 +1,17 @@
 //3rd party
 var Backbone = require('backbone');
+var Validation = require('backbone-validation');
 var $ = require('jQuery');
 
 
 var Contact = Backbone.Model.extend({
   // Default contact attribute values
   defaults: {
-    title: '',
+    name: '',
+    age: '',
+    email: ''
+
+
 
 
   },
@@ -17,13 +22,22 @@ var Contact = Backbone.Model.extend({
     });
 
   },
-  validate: function(attributes){
-    if(attributes.title === undefined){
-        
-        return "Remember to set a title for your contact.";
 
-    }
+  validation: {
+    name: {
+      required: true
+    },
+
+    age: {
+      range: [1, 80]
+    },
+    email: {
+      pattern: 'email'
+    },
+
+
   }
+
 });
 
 var ContactCollection = Backbone.Collection.extend({

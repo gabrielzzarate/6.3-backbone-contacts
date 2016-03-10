@@ -17,13 +17,16 @@ var ContactView = Backbone.View.extend({
 
   events: {
     "click .clickMe" : "complete",
+    'click .destroy': 'clear',
 
   },
 
-  initialize: function (options) {
+  initialize: function () {
 
     this.listenTo(this.collection, "add", this.render);
     this.listenTo(this.collection, "reset", this.render);
+
+
 
 
   },
@@ -37,6 +40,13 @@ var ContactView = Backbone.View.extend({
     this.listenTo(this.collection, 'add', this.render);
     return this;
   },
+
+  clear: function(event) {
+    //this.collection.models.destroy();
+    console.log(this.model);
+    console.log(this.collection);
+    console.log("deleting...");
+  }
 
 
 });
