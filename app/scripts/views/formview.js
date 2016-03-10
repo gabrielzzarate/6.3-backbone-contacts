@@ -38,8 +38,9 @@ var FormView = Backbone.View.extend({
        return acum;
         }, {});
         console.log(contactData);
-        this.collection.add(contactData);
-        Backbone.Validation.bind(this);
+        this.collection.create(contactData);
+        //this.collection.add(contactData);
+        //Backbone.Validation.bind(this);
       }
 
 

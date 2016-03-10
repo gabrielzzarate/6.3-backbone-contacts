@@ -43,4 +43,12 @@ body {
 
 a {
   color: white;
+
+  &:hover {
+    color: red;
+  }
+
+  &:active {
+    color: white;
+  }
 }

@@ -10,7 +10,7 @@ var contactView = require('./views/contactview');
 var formView = require('./views/formview');
 
 var ContactModel = new models.Contact();
-console.log(ContactModel);
+
 var newContact = new models.ContactCollection();
 var formView = new formView.FormView({collection: newContact});
 console.log(newContact);
@@ -20,6 +20,12 @@ var contactView = new contactView.ContactView({collection: newContact});
 $('.showContacts').html(contactView.render().el);
 
 //this.el.html
+
+var contacts = new ContactCollection();
+contacts.fetch().done(function(){
+  var formView = new ContactView( { collection: contacts });
+
+});
 
 
 $('.createContacts').on('click', '.submit-button', function(evt){
@@ -85,7 +91,7 @@ var Contact = Backbone.Model.extend({
 
 var ContactCollection = Backbone.Collection.extend({
   model: Contact,
-  url: 'http://tiny-lasagna-server.herokuapp.com/collections/mycontacts/'
+  url: 'http://tiny-lasagna-server.herokuapp.com/collections/contactdirectory/'
 
 
 
@@ -205,8 +211,9 @@ var FormView = Backbone.View.extend({
        return acum;
         }, {});
         console.log(contactData);
-        this.collection.add(contactData);
-        Backbone.Validation.bind(this);
+        this.collection.create(contactData);
+        //this.collection.add(contactData);
+        //Backbone.Validation.bind(this);
       }
 
 

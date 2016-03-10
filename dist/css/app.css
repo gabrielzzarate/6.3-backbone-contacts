@@ -5836,5 +5836,9 @@ body {
 
 a {
   color: white; }
+  a:hover {
+    color: red; }
+  a:active {
+    color: white; }
 
 /*# sourceMappingURL=app.css.map */
