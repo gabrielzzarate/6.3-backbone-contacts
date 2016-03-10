@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Backbone Contacts</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+    <h1>Contact Directory</h1>
+
+    <div class="container">
+
+      <div class="createContacts col-md-4">
+        <!-- form template populates here -->
+      </div>
+
+      <div class="col-md-8">
+        <ul class="showContacts">
+            <!--contact template populates here -->
+
+        </ul>
+
+
+
+      </div>
+
+    </div>
+
+      <script type="text/x-handlebars-template" id="form-template">
+
+            <h3>Create New Contact</h3>
+            <div class="form-group">
+                <label>Contact Name</label>
+                <input name="name-input" id="name-input" type="name" class="form-control" placeholder="full name">
+          </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input name="phone-input" id="phone-input" type="phone number" class="form-control" placeholder="phone number">
+            </div>
+
+            <div class="form-group">
+              <label>Company</label>
+              <input name="company-input" id="company-input" type="phone number" class="form-control" placeholder="company name">
+            </div>
+
+            <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
+
+
+      </script>
+
+
+    <script type="text/x-handlebars-template" id="contact-template">
+
+      <table class="table table-hover">
+        <table class="table table-striped">
+    <thead>
+      <tr class="table-headings">
+        <th>Name</th>
+        <th>Phone #</th>
+        <th>Company</th>
+        <th>Twitter</th>
+        <th>LinkedIn</th>
+        <th>Facebook</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this}}
+      <tr class="table-items">
+        <td>{{this.name-input}}</td>
+        <td>{{this.phone-input}}</td>
+        <td>{{this.company-input}}</td>
+        <td><a href="#"><i class="fa fa-trash-o icons destroy"></i></a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+
+
+      </table>
+
+
+    </script>
+
+
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
