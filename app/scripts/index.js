@@ -7,10 +7,11 @@ var models = require('./models/contacts');
 var contactView = require('./views/contactview');
 var formView = require('./views/formview');
 
-
+var ContactModel = new models.Contact();
+console.log(ContactModel);
 var newContact = new models.ContactCollection();
 var formView = new formView.FormView({collection: newContact});
-
+console.log(newContact);
 $('.createContacts').html(formView.render().el);
 
 var contactView = new contactView.ContactView({collection: newContact});

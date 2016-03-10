@@ -5831,4 +5831,10 @@ body {
   margin: 0;
   display: block; }
 
+.table-items td {
+  background-color: #333; }
+
+a {
+  color: white; }
+
 /*# sourceMappingURL=app.css.map */

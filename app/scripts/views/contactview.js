@@ -8,7 +8,7 @@ var $ = require('jQuery');
 
 var ContactView = Backbone.View.extend({
 
-  tagName:  'li',
+  tagName:  'td',
   className: 'contact-item',
 
 
@@ -22,16 +22,10 @@ var ContactView = Backbone.View.extend({
 
   initialize: function (options) {
 
-
-
     this.listenTo(this.collection, "add", this.render);
     this.listenTo(this.collection, "reset", this.render);
 
 
-  },
-
-  events: {
-    "add this.collection" : "render"
   },
 
 

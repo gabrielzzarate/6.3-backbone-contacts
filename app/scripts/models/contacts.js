@@ -8,6 +8,7 @@ var Contact = Backbone.Model.extend({
   defaults: {
     title: '',
 
+
   },
   initialize: function(){
     console.log('A contact model has been made!');
@@ -18,7 +19,9 @@ var Contact = Backbone.Model.extend({
   },
   validate: function(attributes){
     if(attributes.title === undefined){
+        
         return "Remember to set a title for your contact.";
+
     }
   }
 });
@@ -26,10 +29,11 @@ var Contact = Backbone.Model.extend({
 var ContactCollection = Backbone.Collection.extend({
   model: Contact,
   url: 'http://tiny-lasagna-server.herokuapp.com/collections/mycontacts/'
-  
+
 
 
 });
+
 
 // var myContacts = new ContactCollection();
 // myContacts.reset([

@@ -9,10 +9,11 @@ var models = require('./models/contacts');
 var contactView = require('./views/contactview');
 var formView = require('./views/formview');
 
-
+var ContactModel = new models.Contact();
+console.log(ContactModel);
 var newContact = new models.ContactCollection();
 var formView = new formView.FormView({collection: newContact});
-
+console.log(newContact);
 $('.createContacts').html(formView.render().el);
 
 var contactView = new contactView.ContactView({collection: newContact});
@@ -50,6 +51,7 @@ var Contact = Backbone.Model.extend({
   defaults: {
     title: '',
 
+
   },
   initialize: function(){
     console.log('A contact model has been made!');
@@ -60,7 +62,9 @@ var Contact = Backbone.Model.extend({
   },
   validate: function(attributes){
     if(attributes.title === undefined){
+        
         return "Remember to set a title for your contact.";
+
     }
   }
 });
@@ -68,10 +72,11 @@ var Contact = Backbone.Model.extend({
 var ContactCollection = Backbone.Collection.extend({
   model: Contact,
   url: 'http://tiny-lasagna-server.herokuapp.com/collections/mycontacts/'
-  
+
 
 
 });
+
 
 // var myContacts = new ContactCollection();
 // myContacts.reset([
@@ -96,7 +101,7 @@ var $ = require('jQuery');
 
 var ContactView = Backbone.View.extend({
 
-  tagName:  'li',
+  tagName:  'td',
   className: 'contact-item',
 
 
@@ -110,16 +115,10 @@ var ContactView = Backbone.View.extend({
 
   initialize: function (options) {
 
-
-
     this.listenTo(this.collection, "add", this.render);
     this.listenTo(this.collection, "reset", this.render);
 
 
-  },
-
-  events: {
-    "add this.collection" : "render"
   },
 
 
